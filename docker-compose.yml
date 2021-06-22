@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  offer-cache:
+    container_name: cache
+    image: "redis:alpine"
+    volumes:
+      - ./data:/data
+    ports:
+      - "6379:6379"
+    entrypoint: ["redis-server", "--appendonly", "yes"]
+    networks:
+        - offer-enhancer-net
+
+networks:
+  offer-enhancer-net:
+    driver: bridge
