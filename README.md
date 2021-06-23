@@ -148,7 +148,7 @@ Feature collectors compute normalised determinant factors for the offer storing 
 - *weather*: (minmax/z-) : score giving a probability of delay. Calculated from the weather scenarios.
 
 #### panoramic-fc (Prefix `<request_id>`:`<offer_id>`:`df`:)
-- TBD.
+- *panoramic*: (minmax/z-) : total number of relevant spots (historical sites, monuments and landscapes) that can be found within an area of 100 m radius around the starting and ending coordinates of each leg.
 
 #### time-fc (Prefix `<request_id>`:`<offer_id>`:`df`:)
 - TBD.
