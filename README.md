@@ -151,7 +151,10 @@ Feature collectors compute normalised determinant factors for the offer storing 
 - *panoramic*: (minmax/z-) : total number of relevant spots (historical sites, monuments and landscapes) that can be found within an area of 100 m radius around the starting and ending coordinates of each leg.
 
 #### time-fc (Prefix `<request_id>`:`<offer_id>`:`df`:)
-- TBD.
+- *duration*: (minmax/z-) overall trip duration (in minutes), including all connections. It is computed as scheduled arrival time – scheduled departure time (obtained from TRIAS).
+- *time_to_departure*: (minmax/z-) waiting time (in minutes) between the moment the user looks for trips and the corresponding departure time of each offer. Calculated as scheduled departure time – current time
+- *waiting_time*: (minmax/z-) waiting time between trip legs (in minutes). Calculated as the sum of time intervals between consecutive legs.
+- *rush_overlap*: (minmax/z-) percentage of the *duration* that overlaps with a rush-hour interval (defined by deafult as 8am-10am and 17pm-20pm).
 
 ### OC Core 
 Final scores computed as a result of the offer categorization process for each offer and offer category (Prefix `<request_id>`:`<offer_id>`:).
