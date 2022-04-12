@@ -26,6 +26,14 @@ For each level a prefix to compose the key is specified. Mandatory information a
 - *end_time*: Desired ending time specified by the user in the Mobility Request. String formatted as xsd:datetime.
 - *start_point*: Desired origin coordinates specified by the user in the Mobility Request. String formatted as a GeoJson Point.
 - *end_point*: Desired destination coordinates specified by the user in the Mobility Request. String formatted as GeoJson Point.
+- *cycling_dist_to_stop*: The maximum cycling distance user is willing to cycle to the requested stop or between two stops. String formatted as xsd:NonNegativeDecimal (xs:decimal)
+- *walking_dist_to_stop*: The maximum walking distance user is willing to walk to the requested stop or between two stops. String formatted as xsd:NonNegativeDecimal (xs:decimal).
+- *walking_speed*: The maximum walking speed of the user. String formatted as xsd:IndividualTransportSpeed.
+- *cycling_speed*: The maximum cycling speed of the user. String formatted as xsd:IndividualTransportSpeed.
+- *driving_speed*: The maximum driving speed of the user. String formatted as xsd:IndividualTransportSpeed.
+- *max_transfers*: The maximum number of transfers the user wants to perform during the whole trip xs:nonNegativeInteger.
+- *expected_duration*: The minumum transfer time that the user expects when changing the transportation modes. String formatted as xs:nonNegativeInteger.
+- *via_locations*: List of coordinates through which the user would like to travel. List of strings tring formatted as a GeoJson Point.
 - *offers**: List of `<offer_id>` computed for the Mobility Request. List of strings representing the `<offer_id>` in keys.
 
 #### Offer-level information (Prefix `<request_id>`:`<offer_id>`: )
@@ -33,7 +41,7 @@ For each level a prefix to compose the key is specified. Mandatory information a
 - *start_time**: Starting time of the Trip associated to the offer. String formatted as xsd:datetime.
 - *end_time**: Ending time of the Trip associated to the offer. String formatted as xsd:datetime.
 - *num_interchanges**: Number of interchanges of the Trip associated to the offer. Integer.
-- *length*: Length of the trip in meters. Integer representing meters
+- *length*: Length of the trip in meters. Integer representing meters.
 - *bookable_total*: Total of all offer items that are actually bookable. HashMap containing two keys:
   - *value** : Integer (last two digits are decimal, e.g., 6215 EUR represents 62,15 euro).
   - *currency* : String formatted as ISO4217 currency code, e.g. EUR for Euro.
@@ -155,6 +163,9 @@ Feature collectors compute normalised determinant factors for the offer storing 
 - *time_to_departure*: (minmax/z-) waiting time (in minutes) between the moment the user looks for trips and the corresponding departure time of each offer. Calculated as scheduled departure time – current time
 - *waiting_time*: (minmax/z-) waiting time between trip legs (in minutes). Calculated as the sum of time intervals between consecutive legs.
 - *rush_overlap*: (minmax/z-) percentage of the *duration* that overlaps with a rush-hour interval (defined by deafult as 8am-10am and 17pm-20pm).
+
+#### geolocation-fc (Prefix `<request_id>`:`<offer_id>`:`city_coordinates`:)
+ - *city_coordinates*: (string) city located at the given coordinates. The lat:lon coordinates are used as the key and the city as the value. The city is obtained by reverse geolocation using the Nominatim API.
 
 ### OC Core 
 Final scores computed as a result of the offer categorization process for each offer and offer category (Prefix `<request_id>`:`<offer_id>`:).
