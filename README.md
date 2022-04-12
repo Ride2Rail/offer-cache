@@ -1,8 +1,8 @@
 # Offer Cache
 
-**Version:** 1.0 
+**Version:** 1.1 
 
-**Date:** 22.06.2021
+**Date:** 12.04.2022
 
 Reference for the _Offer Cache_ schema adopted by the _OfferEnricherAndRanker_. The schema defines how information about offers associated to a specific request are stored in a [Redis](https://redis.io/) instance.
 
